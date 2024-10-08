@@ -265,3 +265,29 @@ const webb24 = new Classroom("Mark", "Hasso", "Asia", "Kevin");
 webb24.addStudent("Ilia");
 webb24.removeStudent("Mark");
 webb24.showStudents();
+
+//### 9. **Skapa en shoppingkorg (ShoppingCart)**
+
+// - **Uppgift:** Skapa en klass `ShoppingCart` som hanterar en lista av objekt med namn och pris. Lägg till metoder för att lägga till objekt till korgen och räkna ut den totala summan.
+// - **Bonus:** Lägg till en metod som räknar ut rabatter.
+
+class ShoppingCart {
+  constructor() {
+    this.list = [];
+  }
+  addItem(name, price) {
+    const item = { name, price };
+    this.list.push(item);
+  }
+  getSum() {
+    return this.list.reduce((total, item) => total + item.price, 0);
+  }
+}
+
+const cart = new ShoppingCart();
+cart.addItem("Stekpanna", 435);
+cart.addItem("Gurka", 15);
+cart.addItem("Laptop", 1342);
+console.log(cart);
+
+console.log(cart.getSum());
