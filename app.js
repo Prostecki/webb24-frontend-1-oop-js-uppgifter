@@ -282,12 +282,27 @@ class ShoppingCart {
   getSum() {
     return this.list.reduce((total, item) => total + item.price, 0);
   }
+  getDiscount() {
+    const total = this.getSum();
+    if (total > 1500) {
+      return total * 0.15;
+    } else {
+      return 0;
+    }
+  }
 }
 
 const cart = new ShoppingCart();
 cart.addItem("Stekpanna", 435);
 cart.addItem("Gurka", 15);
 cart.addItem("Laptop", 1342);
+cart.addItem("Dell", 21123);
+cart.addItem("Samsung", 12999);
 console.log(cart);
-
-console.log(cart.getSum());
+console.log(cart.getDiscount());
+console.log(
+  "Total discount: ",
+  cart.getDiscount(),
+  "Total summa to pay is",
+  cart.getSum() - cart.getDiscount()
+);
